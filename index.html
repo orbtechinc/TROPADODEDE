@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tropa do Dedé | Oficial</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- SDK do Mercado Pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
 
@@ -47,12 +49,6 @@
             background-color: #fff;
             color: #000;
             transform: translateY(-2px);
-        }
-
-        .logo-container {
-            width: 220px;
-            margin: 0 auto;
-            position: relative;
         }
 
         .headline-border {
@@ -132,22 +128,27 @@
             color: var(--brand-red);
         }
 
-        .kit-img-container {
-            transition: transform 0.5s ease;
+        .plan-card {
+            background: linear-gradient(145deg, #111, #000);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        
-        .kit-img-container:hover {
+        .plan-card:hover {
+            border-color: var(--brand-red);
             transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.1);
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
+        .kit-card {
+            transition: all 0.3s ease;
         }
-        ::-webkit-scrollbar-track {
-            background: #000;
+        .kit-card:hover {
+            transform: translateY(-10px);
         }
-        ::-webkit-scrollbar-thumb {
-            background: var(--brand-red);
+
+        .size-btn {
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
     </style>
 </head>
@@ -161,7 +162,6 @@
         <div class="hidden md:flex space-x-8 brand-font">
             <a href="javascript:void(0)" onclick="showPage('home')" class="hover:text-red-500 transition text-sm tracking-widest">A Tropa</a>
             <a href="#noticias" class="hover:text-red-500 transition text-sm tracking-widest nav-link-home">Notícias</a>
-            <a href="#parceiros" class="hover:text-red-500 transition text-sm tracking-widest nav-link-home">Parceiros</a>
             <a href="#sobre" class="hover:text-red-500 transition text-sm tracking-widest nav-link-home">A Marca</a>
         </div>
         <div class="flex items-center gap-3">
@@ -183,12 +183,6 @@
             </div>
 
             <div class="relative z-10 space-y-4 md:space-y-6">
-                <div class="mb-2">
-                    <div class="logo-container">
-                       <img src="https://lh3.googleusercontent.com/u/0/d/1qlxdGzy-zq3_Y3_LtVBrUCtMpSx4j_wU=w1000?authuser=0" alt="Tropa do Dedé Logo" class="w-full h-auto object-contain rounded-lg shadow-2xl shadow-red-600/20">
-                    </div>
-                </div>
-
                 <h2 class="text-6xl md:text-8xl font-black tracking-tighter leading-none">
                     <span class="text-brand-red">QUEM É</span><br>SABE!
                 </h2>
@@ -198,11 +192,11 @@
                 </p>
 
                 <div class="pt-4 flex flex-col md:flex-row gap-4 justify-center">
-                    <a href="#" class="btn-tropa px-8 py-3 rounded-sm font-bold brand-font text-base uppercase tracking-widest shadow-lg shadow-red-600/20">
+                    <a href="https://chat.whatsapp.com/Cg4WybfT40mDuKsE0Up47a" target="_blank" class="btn-tropa px-8 py-3 rounded-sm font-bold brand-font text-base uppercase tracking-widest shadow-lg shadow-red-600/20">
                         Entre na Comunidade
                     </a>
-                    <a href="#parceiros" class="border border-white/20 px-8 py-3 rounded-sm font-bold brand-font text-base hover:bg-white hover:text-black transition uppercase tracking-widest">
-                        Marcas Parceiras
+                    <a href="https://www.instagram.com/tropadodedeofc/" target="_blank" class="border border-white/20 px-8 py-3 rounded-sm font-bold brand-font text-base hover:bg-white hover:text-black transition uppercase tracking-widest">
+                        Seguir no Instagram
                     </a>
                 </div>
             </div>
@@ -213,34 +207,48 @@
             <div class="max-w-7xl mx-auto">
                 <div class="mb-12 border-b border-white/10 pb-4 flex justify-between items-end">
                     <div>
-                        <span class="text-brand-red brand-font font-bold tracking-[0.3em] text-sm uppercase">Editorial</span>
+                        <span class="text-brand-red brand-font font-bold tracking-[0.3em] text-sm uppercase animate-pulse">Plantão Urgente</span>
                         <h2 class="text-5xl font-black uppercase">Jornal da Tropa</h2>
                     </div>
-                    <span class="hidden md:block text-gray-500 brand-font text-sm">BH // EDIÇÃO ATUALIZADA</span>
+                    <span class="hidden md:block text-gray-500 brand-font text-sm">BH // EXCLUSIVO</span>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <div class="lg:col-span-2 space-y-6 border-r border-white/5 pr-0 lg:pr-8">
-                        <div class="bg-zinc-900 aspect-video w-full mb-6 border border-white/10 flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-pointer overflow-hidden">
-                            <img src="https://lh3.googleusercontent.com/u/0/d/1l2uBIJqjkAPHedy6Dk0aqjXOfrqK1UAS=w1000?authuser=0" alt="Destaque" class="w-full h-full object-cover opacity-50">
+                        <div class="bg-zinc-900 aspect-video w-full mb-6 border-4 border-brand-red flex items-center justify-center transition-all cursor-pointer overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.3)]">
+                            <img src="https://i.imgur.com/wGtuv3T.jpeg" alt="Flagra Marcio Prates" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="headline-border">
-                            <h3 class="text-3xl md:text-5xl font-black uppercase leading-none hover:text-red-500 cursor-pointer transition">O Próximo Baile: O Retorno</h3>
+                            <h3 id="headline-principal" class="text-3xl md:text-5xl font-black uppercase leading-none hover:text-red-500 cursor-pointer transition italic tracking-tighter">
+                                Márcio Prates é flagrado de carícias com pezinho de duas integrantes da Tropa: o clima de podogamia pintou no ar!
+                            </h3>
                         </div>
+                        
+                        <!-- Botão de Compartilhar Notícia -->
+                        <div class="pt-2 pb-4">
+                            <button onclick="shareNews()" class="flex items-center gap-2 bg-[#25D366] text-white px-6 py-2 rounded-full transition-all text-sm font-bold brand-font uppercase tracking-widest shadow-lg shadow-green-500/20">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-2.135 0-4.148.833-5.67 2.34s-2.348 3.525-2.35 5.66c0 1.25.305 2.474.88 3.56l-1.001 3.655 3.746-.982c1.036.565 2.2.863 3.393.864h.004c2.135 0 4.148-.833 5.67-2.34s2.348-3.525 2.35-5.66c-.004-4.32-3.511-7.831-7.832-7.831zM17.156 16.143c-.22.617-1.285 1.138-1.785 1.207-.49.068-.973.111-2.906-.653-2.302-.912-3.791-3.253-3.906-3.407-.116-.154-.943-1.254-.943-2.392 0-1.138.591-1.697.801-1.928.21-.231.464-.289.617-.289.155 0 .309.001.442.008.14.008.328-.053.513.393.185.462.634 1.543.689 1.658.056.115.093.25.016.404-.077.154-.116.25-.231.385-.116.135-.243.301-.347.404-.116.115-.238.24-.102.473.136.233.604.996 1.294 1.611.889.791 1.64 1.036 1.872 1.152.231.115.367.096.502-.058.136-.153.579-.674.733-.905.154-.231.309-.192.523-.116.215.077 1.364.643 1.595.759.231.116.385.173.442.269.057.097.057.558-.163 1.176z"/></svg>
+                                Espalhar no WhatsApp
+                            </button>
+                        </div>
+
+                        <p class="text-zinc-200 text-xl leading-relaxed font-bold border-l-4 border-brand-red pl-6 italic">
+                            O flagra que a assessoria tentou esconder! Imagens exclusivas mostram Márcio Prates em um momento de pura "vibe podólatra" com as musas da Tropa.
+                        </p>
                         <p class="text-gray-400 text-lg leading-relaxed">
-                            A Tropa do Dedé prepara o maior evento do ano. Estrutura inédita no coração de BH. Ingressos em breve.
+                            O clima esquentou nos bastidores e o que era pra ser segredo virou pauta nacional. A "podogamia" parece ser a nova tendência da Tropa e o Márcio não perdeu tempo. Fontes garantem que o entrosamento foi total e o clima de intimidade deixou todos chocados. BH não fala de outra coisa!
                         </p>
                     </div>
                     <div class="space-y-8">
                         <h4 class="brand-font font-bold text-xl border-b border-brand-red pb-2 inline-block">MAIS LIDAS</h4>
-                        <div class="group cursor-pointer"><span class="text-brand-red text-xs font-bold brand-font">PRODUTOS</span><h5 class="text-xl font-black uppercase group-hover:text-red-500 transition">Drop #01 esgotado</h5></div>
-                        <div class="group cursor-pointer border-t border-white/5 pt-6"><span class="text-brand-red text-xs font-bold brand-font">SOCIAL</span><h5 class="text-xl font-black uppercase group-hover:text-red-500 transition">Ação no Aglomerado</h5></div>
+                        <div class="group cursor-pointer"><span class="text-brand-red text-xs font-bold brand-font">ESCÂNDALO</span><h5 class="text-xl font-black uppercase group-hover:text-red-500 transition">Quem são as donas dos pés?</h5></div>
+                        <div class="group cursor-pointer border-t border-white/5 pt-6"><span class="text-brand-red text-xs font-bold brand-font">SOCIAL</span><h5 class="text-xl font-black uppercase group-hover:text-red-500 transition">A reação das Amigas da Tropa</h5></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Parceiros -->
-        <section id="parceiros" class="py-20 bg-black border-y border-white/5 overflow-hidden">
+        <section id="parceiros" class="py-20 bg-[#0a0a0a] overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div>
                     <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">Marcas <span class="text-brand-red">Parceiras</span></h2>
@@ -260,20 +268,27 @@
             </div>
         </section>
 
-        <!-- Sobre -->
-        <section id="sobre" class="bg-white text-black py-20 px-6">
+        <!-- Sobre / A Marca -->
+        <section id="sobre" class="bg-white text-black py-24 px-6">
             <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="relative">
-                    <div class="bg-black aspect-square w-full flex items-center justify-center p-8 overflow-hidden">
-                         <img src="https://lh3.googleusercontent.com/u/0/d/1qlxdGzy-zq3_Y3_LtVBrUCtMpSx4j_wU=w1000?authuser=0" alt="Logo Sobre" class="max-w-full grayscale opacity-80 hover:grayscale-0 transition-all duration-700">
+                <div class="relative group">
+                    <div class="bg-black aspect-[3/4] w-full flex items-center justify-center overflow-hidden rounded-lg shadow-2xl">
+                         <img src="https://i.imgur.com/VIaxdZn.jpeg" alt="Fundador da Tropa do Dedé" class="w-full h-full object-cover transition-all duration-700">
                     </div>
-                    <div class="absolute -bottom-4 -right-4 bg-brand-red text-white p-4 brand-font font-bold text-sm shadow-xl">EST. 2024</div>
+                    <div class="absolute -bottom-6 -right-6 bg-brand-red text-white p-6 brand-font font-black text-xl shadow-[10px_10px_0px_rgba(0,0,0,1)] uppercase italic tracking-tighter">O Fundador</div>
                 </div>
-                <div class="space-y-5">
-                    <h2 class="text-4xl md:text-5xl font-black uppercase leading-tight">Muito mais que uma marca, <span class="text-brand-red">um movimento.</span></h2>
-                    <p class="text-base text-gray-700 leading-relaxed">
-                        A <strong>Tropa do Dedé</strong> nasceu das ruas para as ruas. Nosso foco é trazer o lifestyle urbano com a máxima qualidade e a informação que importa para quem vive a capital.
-                    </p>
+                <div class="space-y-6">
+                    <span class="text-brand-red brand-font font-bold tracking-[0.4em] text-sm block uppercase">A Origem de um Império</span>
+                    <h2 class="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter">Do sonho à <span class="text-brand-red">Conquista.</span></h2>
+                    <div class="space-y-4 text-lg text-zinc-800 leading-tight font-medium border-l-4 border-brand-red pl-6 italic">
+                        <p>
+                            André Avelar, o visionário por trás da marca, iniciou esta jornada financiando do próprio bolso experiências de alto padrão, convencendo amigas a explorarem cenários antes inimagináveis e arrastando consigo uma verdadeira legião.
+                        </p>
+                        <p>
+                            Em mais de uma década de confraternizações insanas, o "Dedé" viu brotar parcerias, negócios e momentos inesquecíveis. Ao lado do sócio Japa, transformou esse lifestyle em um ecossistema sólido de networking e expansão para quem, como eles, busca viver a vida com máxima intensidade.
+                        </p>
+                    </div>
+                    <p class="text-zinc-500 font-bold uppercase brand-font tracking-widest text-xs">Muito mais que uma marca, um movimento imparável.</p>
                 </div>
             </div>
         </section>
@@ -286,7 +301,7 @@
                 <div class="space-y-6">
                     <div class="bg-zinc-900 border border-red-600/30 rounded-xl overflow-hidden aspect-[4/5] relative flex items-center justify-center">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-                        <img src="https://lh3.googleusercontent.com/u/0/d/1qlxdGzy-zq3_Y3_LtVBrUCtMpSx4j_wU=w1000?authuser=0" class="w-full h-full object-cover opacity-40 grayscale" alt="Camarote">
+                        <img src="https://i.imgur.com/9vdxyOl.png" class="w-full h-full object-cover opacity-60" alt="Camarote da Tropa Imagem Oficial">
                         <div class="absolute z-20 text-center px-6">
                             <span class="brand-font text-brand-red font-bold tracking-widest text-xl mb-2 block uppercase">Produto Exclusivo</span>
                             <h3 class="text-5xl font-black brand-font italic uppercase">Camarote da Tropa</h3>
@@ -302,10 +317,10 @@
                     <div class="space-y-6 text-gray-300 text-lg leading-relaxed border-l-4 border-brand-red pl-6">
                         <p>Imagina que você foi convocado para um camarote com 50 mulheres lindas, inteligentes, e extraordinárias. Em ambientes como Mansões de luxo, iates lanchas, as melhores casas de show e bares.</p>
                         <p class="font-bold text-white uppercase">E a sua marca está estampada lá 24 horas com todo mundo vendo.</p>
-                        <p>Sendo divulgada junto das notícias dos eventos no nosso site que hoje conta com <strong>+ de mil leads todos meses</strong>, e também sendo repostada nas publicidades de nossas influenciadoras e influenciadores e na página de conteúdos oficial da Tropa do Dedé incluindo Instagram, TikTok e YouTube.</p>
+                        <p>Sendo divulgada junto das notícias dos eventos no nosso site que hoje conta com <strong>+ de mil leads todos meses</strong>, e também sendo repostada nas publicidades de nossas influenciadoras e influenciadores e na página de conteúdos oficial da Tropa do Dedé.</p>
                     </div>
                     <div class="pt-6">
-                        <button class="w-full btn-tropa py-5 rounded-lg font-black brand-font text-2xl tracking-widest uppercase transition-all shadow-xl shadow-red-600/10">Quero Estar no Topo</button>
+                        <button onclick="showPage('planos')" class="block w-full text-center btn-tropa py-5 rounded-lg font-black brand-font text-2xl tracking-widest uppercase transition-all shadow-xl shadow-red-600/10">Quero Estar no Topo</button>
                     </div>
                     <button onclick="showPage('home')" class="text-zinc-500 hover:text-white transition flex items-center gap-2 brand-font uppercase text-sm">← Voltar para o início</button>
                 </div>
@@ -313,44 +328,102 @@
         </section>
     </main>
 
+    <!-- PÁGINA: PLANOS DE PARCERIA -->
+    <main id="page-planos" class="hidden-page min-h-screen pt-20">
+        <section class="max-w-5xl mx-auto px-6 py-12 text-center">
+            <span class="text-brand-red brand-font font-bold tracking-[0.4em] text-sm block mb-4 uppercase">Investimento e Retorno</span>
+            <h1 class="text-6xl font-black brand-font mb-2 uppercase italic">Plano de Parceria</h1>
+            <p class="text-zinc-400 mb-16 brand-font tracking-widest">EXPANDA SUA MARCA COM QUEM DOMINA BH</p>
+
+            <div class="max-w-md mx-auto plan-card p-10 rounded-3xl text-left relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-brand-red px-6 py-2 brand-font font-bold text-xs uppercase italic transform translate-x-8 translate-y-4 rotate-45">Elite</div>
+                
+                <h3 class="text-3xl font-black brand-font mb-2">ASSINATURA TROPA</h3>
+                <div class="flex items-baseline gap-2 mb-6">
+                    <span class="text-5xl font-black text-white">R$ 29,90</span>
+                    <span class="text-zinc-500 brand-font">/MÊS</span>
+                </div>
+                
+                <div class="mb-8 p-4 bg-white/5 border border-white/10 rounded-xl">
+                    <span class="text-brand-red font-bold text-xs uppercase brand-font tracking-tighter">Acordo de Permuta</span>
+                    <p class="text-white font-bold text-lg House leading-tight mt-1">4 Combos por Mês</p>
+                    <p class="text-zinc-400 text-xs mt-1 italic uppercase">(Sendo 1 Combo por Semana)</p>
+                </div>
+
+                <h4 class="brand-font text-zinc-400 font-bold mb-4 tracking-widest text-sm uppercase">Benefícios Exclusivos:</h4>
+                <ul class="space-y-4 text-sm text-gray-300 mb-10">
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-red font-bold">✓</span>
+                        <span><strong>Agendamento Mensal:</strong> 1 evento por mês no seu estabelecimento com o público selecionado das Amigas da Tropa.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-red font-bold">✓</span>
+                        <span><strong>Open Bar Garantido:</strong> Camarote exclusivo com serviço de bebidas para convidados VIP.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-red font-bold">✓</span>
+                        <span><strong>Presença VIP:</strong> No mínimo 10 integrantes com Presença VIP no seu evento.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-red font-bold">✓</span>
+                        <span><strong>Divulgação Multi-Canal:</strong> Sua marca estampada em outros eventos de grande porte da Tropa.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-red font-bold">✓</span>
+                        <span><strong>Alcance Massivo:</strong> Impulsionamento nas redes sociais da Tropa e rede de influenciadores parceiros.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-red font-bold">✓</span>
+                        <span><strong>Impacto Editorial:</strong> Lançamento da data no Jornal da Tropa, Comunidade e todas as mídias sociais.</span>
+                    </li>
+                </ul>
+
+                <a href="https://wa.me/5531993273932?text=Quero+ser+parceiro+da+Tropa+do+Dedé!" target="_blank" class="block w-full text-center bg-white text-black py-4 rounded-xl font-black brand-font text-xl uppercase tracking-widest hover:bg-brand-red hover:text-white transition-all">ASSINAR AGORA</a>
+            </div>
+
+            <button onclick="showPage('camarote')" class="mt-12 text-zinc-500 hover:text-white transition flex items-center justify-center gap-2 brand-font uppercase text-sm mx-auto">← Voltar aos Detalhes</button>
+        </section>
+    </main>
+
     <!-- PÁGINA: LOJA DA TROPA -->
     <main id="page-loja" class="hidden-page min-h-screen pt-20">
         <section class="max-w-7xl mx-auto px-6 py-12">
-            <!-- Header Loja -->
             <div class="text-center mb-16">
                 <span class="text-brand-red brand-font font-bold tracking-[0.4em] text-sm block mb-4 uppercase">Lifestyle Urbano</span>
                 <h1 class="text-6xl md:text-7xl font-black brand-font leading-none uppercase mb-2">Loja da Tropa</h1>
                 <h2 class="text-3xl md:text-4xl font-bold brand-font text-zinc-500 italic uppercase">“Vamos descer pesados...”</h2>
                 <div class="max-w-2xl mx-auto mt-8">
                    <p class="text-gray-300 text-lg leading-relaxed">
-                        O jeito de chamar atenção nos dias de hoje é sendo autêntico... Me ajudem aí amigos e adquiram logo seu KIT DA TROPA pra descer pesados pra festa!
+                        O jeito de chamar atenção nos dias de hoje é sendo autêntico... Adquiram logo seu KIT DA TROPA pra descer pesados pra festa!
                     </p>
                 </div>
             </div>
 
-            <!-- Exemplos de Kits -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-                <div class="space-y-4">
+                <!-- Kit Black -->
+                <div class="space-y-4 kit-card group cursor-pointer" onclick="openVendas('Black Edition', 'https://i.imgur.com/gEBGB2F.png', 'Black')">
                     <div class="kit-img-container bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden aspect-square flex items-center justify-center p-4">
-                        <img src="https://lh3.googleusercontent.com/u/0/d/1qlxdGzy-zq3_Y3_LtVBrUCtMpSx4j_wU=w1000?authuser=0" alt="Kit da Tropa Black" class="w-full h-full object-cover rounded-xl shadow-2xl">
+                        <img src="https://i.imgur.com/gEBGB2F.png" alt="Kit da Tropa Black" class="w-full h-full object-contain rounded-xl shadow-2xl transition group-hover:scale-105">
                     </div>
                     <div class="text-center">
                         <h3 class="brand-font text-2xl font-bold">Kits da Tropa <span class="text-brand-red">Black Edition</span></h3>
                         <p class="text-zinc-500 text-xs uppercase tracking-widest mt-1">Completo: Camiseta, Moletom, Copo, Chinelo e Boné</p>
+                        <p class="text-white font-bold mt-2">R$ 199,90</p>
                     </div>
                 </div>
-                <div class="space-y-4">
+                <!-- Kit White -->
+                <div class="space-y-4 kit-card group cursor-pointer" onclick="openVendas('White Edition', 'https://i.imgur.com/BHXSIPG.png', 'White')">
                     <div class="kit-img-container bg-zinc-100 border border-white/10 rounded-2xl overflow-hidden aspect-square flex items-center justify-center p-4">
-                        <img src="https://lh3.googleusercontent.com/u/0/d/1l2uBIJqjkAPHedy6Dk0aqjXOfrqK1UAS=w1000?authuser=0" alt="Kit da Tropa White" class="w-full h-full object-cover rounded-xl shadow-2xl">
+                        <img src="https://i.imgur.com/BHXSIPG.png" alt="Kit da Tropa White" class="w-full h-full object-contain rounded-xl shadow-2xl transition group-hover:scale-105">
                     </div>
                     <div class="text-center">
-                        <h3 class="brand-font text-2xl font-bold text-white">Kits da Tropa <span class="text-brand-red">White Edition</span></h3>
+                        <h3 class="brand-font text-2xl font-bold text-black md:text-white">Kits da Tropa <span class="text-brand-red">White Edition</span></h3>
                         <p class="text-zinc-500 text-xs uppercase tracking-widest mt-1">Completo: Camiseta, Moletom, Copo, Chinelo e Boné</p>
+                        <p class="text-white font-bold mt-2">R$ 199,90</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Categorias e Navegação -->
             <div class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
                     <div class="category-card">Roupas</div>
@@ -360,6 +433,66 @@
                 </div>
                 <div class="text-center">
                     <button onclick="showPage('home')" class="text-zinc-500 hover:text-white transition flex items-center justify-center gap-2 brand-font uppercase text-sm mx-auto">← Voltar para o início</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PÁGINA DE VENDAS DO KIT (DINÂMICA) -->
+    <main id="page-vendas" class="hidden-page min-h-screen pt-20">
+        <section class="max-w-6xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Imagem do Produto -->
+                <div id="vendas-img-container" class="rounded-3xl overflow-hidden aspect-square flex items-center justify-center p-8 border border-white/10 shadow-2xl">
+                    <img id="vendas-img" src="" alt="Kit Tropa" class="w-full h-full object-contain">
+                </div>
+
+                <!-- Detalhes da Compra -->
+                <div class="space-y-8">
+                    <div>
+                        <span class="text-brand-red brand-font font-bold tracking-[0.4em] text-sm block mb-2 uppercase">Lançamento Oficial</span>
+                        <h1 class="text-5xl md:text-6xl font-black brand-font leading-none uppercase">Kit da Tropa</h1>
+                        <h2 id="vendas-nome" class="text-2xl font-bold brand-font text-zinc-500 uppercase italic"></h2>
+                    </div>
+
+                    <div class="space-y-2">
+                        <p class="text-zinc-400 text-sm uppercase tracking-widest">Preço Exclusivo</p>
+                        <div class="flex items-baseline gap-3">
+                            <span class="text-6xl font-black text-white brand-font">R$ 199,90</span>
+                            <span class="text-zinc-500 line-through text-xl">R$ 349,90</span>
+                        </div>
+                        <p class="text-brand-red font-bold text-xl brand-font">Ou em até 12x de R$ 19,90 no cartão</p>
+                    </div>
+
+                    <div class="space-y-4 pt-4 border-t border-white/10">
+                        <p class="text-xs uppercase tracking-widest text-zinc-400 font-bold">Selecione o Tamanho</p>
+                        <div class="flex gap-3">
+                            <button onclick="selectSize(this)" class="size-btn w-12 h-12 border border-white/20 rounded-lg flex items-center justify-center brand-font hover:bg-white hover:text-black transition">P</button>
+                            <button onclick="selectSize(this)" class="size-btn w-12 h-12 border border-brand-red bg-brand-red text-white rounded-lg flex items-center justify-center brand-font">M</button>
+                            <button onclick="selectSize(this)" class="size-btn w-12 h-12 border border-white/20 rounded-lg flex items-center justify-center brand-font hover:bg-white hover:text-black transition">G</button>
+                            <button onclick="selectSize(this)" class="size-btn w-12 h-12 border border-white/20 rounded-lg flex items-center justify-center brand-font hover:bg-white hover:text-black transition">GG</button>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 space-y-4">
+                        <!-- Onde o botão do WhatsApp/Venda será injetado -->
+                        <div id="wallet_container"></div>
+                        
+                        <p class="text-center text-zinc-500 text-[10px] uppercase tracking-widest">Atendimento direto com a equipe de vendas da Tropa</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 pt-6">
+                        <div class="bg-zinc-900/50 p-4 rounded-xl border border-white/5">
+                            <span class="block text-brand-red font-bold text-xs mb-1 uppercase">Frete</span>
+                            <span class="text-white text-sm">Entrega em toda BH e Região</span>
+                        </div>
+                        <div class="bg-zinc-900/50 p-4 rounded-xl border border-white/5">
+                            <span class="block text-brand-red font-bold text-xs mb-1 uppercase">Qualidade</span>
+                            <span class="text-white text-sm">Material Premium 100% Algodão</span>
+                        </div>
+                    </div>
+
+                    <button onclick="showPage('loja')" class="text-zinc-500 hover:text-white transition flex items-center gap-2 brand-font uppercase text-sm">← Voltar para a loja</button>
                 </div>
             </div>
         </section>
@@ -378,14 +511,11 @@
                 <div class="flex flex-col items-center gap-4">
                     <span class="brand-font text-xs text-brand-red font-bold tracking-[0.3em] uppercase">Nossas Redes</span>
                     <div class="flex flex-wrap justify-center gap-8 md:gap-12">
-                        <a href="#" class="group flex flex-col items-center text-zinc-400 hover:text-white transition">
+                        <a href="https://www.instagram.com/tropadodedeofc/" target="_blank" class="group flex flex-col items-center text-zinc-400 hover:text-white transition">
                             <span class="text-[10px] font-bold brand-font uppercase tracking-widest">Instagram</span>
                         </a>
-                        <a href="#" class="group flex flex-col items-center text-zinc-400 hover:text-white transition">
+                        <a href="https://www.tiktok.com/@tropadodedeofc" target="_blank" class="group flex flex-col items-center text-zinc-400 hover:text-white transition">
                             <span class="text-[10px] font-bold brand-font uppercase tracking-widest">TikTok</span>
-                        </a>
-                        <a href="#" class="group flex flex-col items-center text-zinc-400 hover:text-white transition">
-                            <span class="text-[10px] font-bold brand-font uppercase tracking-widest">Facebook</span>
                         </a>
                         <a href="#" class="group flex flex-col items-center text-zinc-400 hover:text-white transition">
                             <span class="text-[10px] font-bold brand-font uppercase tracking-widest">YouTube</span>
@@ -401,33 +531,94 @@
     </footer>
 
     <!-- Botão Flutuante Grupo VIP -->
-    <a href="#" class="fixed bottom-6 right-6 bg-brand-red p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center justify-center group shadow-red-600/30">
+    <a href="https://chat.whatsapp.com/Cg4WybfT40mDuKsE0Up47a" target="_blank" class="fixed bottom-6 right-6 bg-brand-red p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center justify-center group shadow-red-600/30">
         <span class="absolute right-full mr-3 bg-black/90 text-white text-[10px] px-3 py-1 rounded brand-font whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">GRUPO VIP</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
     </a>
 
     <script>
+        let currentSize = 'M';
+        const WHATSAPP_NUMBER = '5531993273932';
+
         function showPage(pageId) {
-            const home = document.getElementById('page-home');
-            const camarote = document.getElementById('page-camarote');
-            const loja = document.getElementById('page-loja');
+            const pages = ['page-home', 'page-camarote', 'page-loja', 'page-planos', 'page-vendas'];
             const navLinksHome = document.querySelectorAll('.nav-link-home');
 
-            home.classList.add('hidden-page');
-            camarote.classList.add('hidden-page');
-            loja.classList.add('hidden-page');
+            pages.forEach(id => {
+                const p = document.getElementById(id);
+                if(p) p.classList.add('hidden-page');
+            });
 
-            if (pageId === 'camarote') {
-                camarote.classList.remove('hidden-page');
-                navLinksHome.forEach(link => link.style.display = 'none');
-            } else if (pageId === 'loja') {
-                loja.classList.remove('hidden-page');
-                navLinksHome.forEach(link => link.style.display = 'none');
-            } else {
-                home.classList.remove('hidden-page');
+            const activePage = document.getElementById('page-' + pageId);
+            if (activePage) activePage.classList.remove('hidden-page');
+
+            if (pageId === 'home') {
                 navLinksHome.forEach(link => link.style.display = 'block');
+            } else {
+                navLinksHome.forEach(link => link.style.display = 'none');
             }
             window.scrollTo(0, 0);
+        }
+
+        function openVendas(nome, img, tipo) {
+            document.getElementById('vendas-nome').innerText = nome;
+            document.getElementById('vendas-img').src = img;
+            
+            const container = document.getElementById('vendas-img-container');
+            if(tipo === 'White') {
+                container.classList.remove('bg-zinc-900');
+                container.classList.add('bg-zinc-100');
+            } else {
+                container.classList.remove('bg-zinc-100');
+                container.classList.add('bg-zinc-900');
+            }
+
+            // Atualiza o botão sempre que abrir um novo produto
+            renderMPButton();
+            showPage('vendas');
+        }
+
+        function selectSize(btn) {
+            document.querySelectorAll('.size-btn').forEach(b => {
+                b.classList.remove('border-brand-red', 'bg-brand-red', 'text-white');
+                b.classList.add('border-white/20');
+            });
+            btn.classList.add('border-brand-red', 'bg-brand-red', 'text-white');
+            btn.classList.remove('border-white/20');
+            currentSize = btn.innerText;
+        }
+
+        function renderMPButton() {
+            const container = document.getElementById('wallet_container');
+            container.innerHTML = `
+                <button onclick="sendToWhatsApp()" 
+                        class="block w-full text-center bg-[#25D366] text-white py-5 rounded-xl font-black brand-font text-2xl tracking-widest uppercase hover:opacity-90 transition-all shadow-2xl flex items-center justify-center gap-3">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-2.135 0-4.148.833-5.67 2.34s-2.348 3.525-2.35 5.66c0 1.25.305 2.474.88 3.56l-1.001 3.655 3.746-.982c1.036.565 2.2.863 3.393.864h.004c2.135 0 4.148-.833 5.67-2.34s2.348-3.525 2.35-5.66c-.004-4.32-3.511-7.831-7.832-7.831zM17.156 16.143c-.22.617-1.285 1.138-1.785 1.207-.49.068-.973.111-2.906-.653-2.302-.912-3.791-3.253-3.906-3.407-.116-.154-.943-1.254-.943-2.392 0-1.138.591-1.697.801-1.928.21-.231.464-.289.617-.289.155 0 .309.001.442.008.14.008.328-.053.513.393.185.462.634 1.543.689 1.658.056.115.093.25.016.404-.077.154-.116.25-.231.385-.116.135-.243.301-.347.404-.116.115-.238.24-.102.473.136.233.604.996 1.294 1.611.889.791 1.64 1.036 1.872 1.152.231.115.367.096.502-.058.136-.153.579-.674.733-.905.154-.231.309-.192.523-.116.215.077 1.364.643 1.595.759.231.116.385.173.442.269.057.097.057.558-.163 1.176z"/></svg>
+                    Finalizar no WhatsApp
+                </button>
+            `;
+        }
+
+        function sendToWhatsApp() {
+            const kitNome = document.getElementById('vendas-nome').innerText;
+            const mensagem = `Salve Tropa! Gostaria de finalizar o pedido do meu Kit:\n\n` +
+                             `📦 *Produto:* Kit da Tropa ${kitNome}\n` +
+                             `📏 *Tamanho:* ${currentSize}\n` +
+                             `💰 *Valor:* R$ 199,90\n\n` +
+                             `Como faço para realizar o pagamento e retirar em BH?`;
+            
+            const encodedMessage = encodeURIComponent(mensagem);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Nova função para compartilhar notícia
+        function shareNews() {
+            const titulo = document.getElementById('headline-principal').innerText;
+            const url = window.location.href;
+            const mensagem = `🔥 *CHOCANTE: ESCÂNDALO NA TROPA!* 🔥\n\n📢 *MATÉRIA:* ${titulo}\n\nConfira os detalhes e a foto proibida no site oficial:\n🔗 ${url}`;
+            
+            const encodedMessage = encodeURIComponent(mensagem);
+            window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
         }
     </script>
 </body>
