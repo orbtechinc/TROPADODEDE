@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tropa do Dedé | Oficial</title>
+    
+    <!-- Metadados para Prévia de Compartilhamento (WhatsApp/Redes Sociais) -->
+    <meta property="og:title" id="og-title" content="Titi revela: 'Vou passar o rodo geral!'">
+    <meta property="og:description" id="og-desc" content="Após 4 términos brutais, o astro da tropa volta com tudo e não perdoa nenhuma princesa.">
+    <meta property="og:image" id="og-image" content="https://i.ibb.co/TBgXNHTR/Design-sem-nome-1.png">
+    <meta property="og:type" content="article">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- SDK do Mercado Pago -->
     <script src="https://sdk.mercadopago.com/js/v2"></script>
@@ -160,6 +167,17 @@
             max-height: 80vh;
             overflow-y: auto;
         }
+        
+        /* News List Styles */
+        .history-item {
+            border-left: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .history-item:hover {
+            border-left: 2px solid var(--brand-red);
+            background: rgba(255,0,0,0.05);
+            padding-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -223,31 +241,26 @@
                     <span class="hidden md:block text-gray-500 brand-font text-sm">BH // EXCLUSIVO</span>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Matéria Principal com Modal -->
-                    <div class="lg:col-span-2 space-y-6 border-r border-white/5 pr-0 lg:pr-8 group cursor-pointer" onclick="openNews('veteranas-retorno')">
+                    <!-- Matéria Principal -->
+                    <div class="lg:col-span-2 space-y-6 border-r border-white/5 pr-0 lg:pr-8 group cursor-pointer" onclick="openNews('titi-retorno')">
                         <div class="bg-zinc-900 aspect-video w-full mb-6 border-4 border-brand-red flex items-center justify-center transition-all overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.3)]">
-                            <img src="https://i.ibb.co/XZrt55M0/5c9a7df4-2254-4f45-ab7e-1f3e590e1e7a.jpg" alt="Veteranas da Tropa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://i.ibb.co/TBgXNHTR/Design-sem-nome-1.png" alt="Titi Tropa do Dedé" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="headline-border">
                             <h3 class="text-3xl md:text-5xl font-black uppercase leading-none group-hover:text-red-500 transition italic tracking-tighter">
-                                Veteranas da Tropa após saída do grupo por conflitos internos voltam com tudo e prometem quebrar tudo no final de semana descendo pesado pros eventos
+                                Titi revela que após 4 términos brutais, volta com tudo e não vai perdoar nenhuma princesa da tropa: vai passar o rodo geral azaaaar
                             </h3>
                         </div>
                         
                         <p class="text-zinc-200 text-xl leading-relaxed font-bold border-l-4 border-brand-red pl-6 italic">
-                            O retorno mais esperado de BH! Após um período de afastamento e muitas especulações, as veteranas estão de volta para mostrar quem manda...
+                            O lobo solitário perdeu a coleira! Em declaração exclusiva, Titi afirma que sua fase romântica acabou e o "modo ataque" foi ativado para os próximos eventos...
                         </p>
                     </div>
-                    <!-- Mais Lidas -->
+                    <!-- Mais Lidas / Histórico -->
                     <div class="space-y-8">
-                        <h4 class="brand-font font-bold text-xl border-b border-brand-red pb-2 inline-block">MAIS LIDAS</h4>
-                        <div class="group cursor-pointer" onclick="openNews('podogamia')">
-                            <span class="text-brand-red text-xs font-bold brand-font">ESCÂNDALO</span>
-                            <h5 class="text-xl font-black uppercase group-hover:text-red-500 transition">Márcio Prates e a Podogamia em BH</h5>
-                        </div>
-                        <div class="group cursor-pointer border-t border-white/5 pt-6" onclick="openNews('donas-pes')">
-                            <span class="text-brand-red text-xs font-bold brand-font">SOCIAL</span>
-                            <h5 class="text-xl font-black uppercase group-hover:text-red-500 transition">Quem são as donas dos pés?</h5>
+                        <h4 class="brand-font font-bold text-xl border-b border-brand-red pb-2 inline-block">MAIS LIDAS / HISTÓRICO</h4>
+                        <div id="news-history-container" class="space-y-6">
+                            <!-- Injetado via JS -->
                         </div>
                     </div>
                 </div>
@@ -563,22 +576,65 @@
         let currentSize = 'M';
         const WHATSAPP_NUMBER = '5531993273932';
 
-        const newsData = {
-            'veteranas-retorno': {
-                title: "Veteranas da Tropa após saída do grupo por conflitos internos voltam com tudo e prometem quebrar tudo no final de semana descendo pesado pros eventos",
-                image: "https://i.ibb.co/XZrt55M0/5c9a7df4-2254-4f45-ab7e-1f3e590e1e7a.jpg",
-                text: "<p>O retorno das veteranas parou BH! Após um período de afastamento devido a conflitos internos que sacudiram as estruturas da Tropa, o time histórico está de volta e mais unido do que nunca.</p><p>As veteranas não apenas retornaram, mas já avisaram: o final de semana será histórico. Elas prometem quebrar tudo nos eventos, mantendo a tradição de 'descer pesado' e comandar a cena urbana da capital.</p><p>O clima de reconciliação e força renovada já é sentido na comunidade VIP. A Tropa do Dedé retoma sua formação de elite para as próximas conquistas!</p>"
+        // HISTÓRICO DE MATÉRIAS (ORDEM CRONOLÓGICA)
+        const newsData = [
+            {
+                slug: 'titi-retorno',
+                title: "Titi revela que após 4 términos brutais, volta com tudo e não vai perdoar nenhuma princesa da tropa vai passar o rodo geral azaaaar",
+                image: "https://i.ibb.co/TBgXNHTR/Design-sem-nome-1.png",
+                date: "Hoje",
+                category: "BOMBA!",
+                text: "<p>O astro da Tropa cansou de sofrer por amor! Após enfrentar o quarto término brutal em tempo recorde, Titi quebrou o silêncio e mandou o papo reto para a comunidade.</p><p>Em suas palavras: 'O romantismo morreu. Agora é foco nos eventos e não vai sobrar uma princesa na pista'. O aviso foi dado e o azar é de quem cruzar o caminho do homem nesse final de semana.</p><p>Fontes próximas indicam que ele já preparou o look para descer pesado nos camarotes e o modo 'passar o rodo' já está 100% operacional.</p>"
             },
-            'podogamia': {
+            {
+                slug: 'veteranas-retorno',
+                title: "Veteranas da Tropa após saída do grupo por conflitos internos voltam com tudo e prometem quebrar tudo",
+                image: "https://i.ibb.co/XZrt55M0/5c9a7df4-2254-4f45-ab7e-1f3e590e1e7a.jpg",
+                date: "Ontem",
+                category: "RECONCILIAÇÃO",
+                text: "<p>O retorno das veteranas parou BH! Após um período de afastamento devido a conflitos internos que sacudiram as estruturas da Tropa, o time histórico está de volta e mais unido do que nunca.</p><p>As veteranas não apenas retornaram, mas já avisaram: o final de semana será histórico.</p>"
+            },
+            {
+                slug: 'podogamia',
                 title: "Márcio Prates e a Podogamia em BH",
                 image: "https://i.imgur.com/wGtuv3T.jpeg",
-                text: "<p>Márcio Prates foi flagrado em momentos de pura intimidade com os pés das integrantes. A 'podogamia' parece ter virado religião nos eventos da Tropa.</p><p>O flagra que a assessoria tentou esconder mostra que o clima esquentou nos bastidores e o que era pra ser segredo virou pauta nacional.</p>"
+                date: "02 Mar",
+                category: "ESCÂNDALO",
+                text: "<p>Márcio Prates foi flagrado em momentos de pura intimidade com os pés das integrantes. A 'podogamia' parece ter virado religião nos eventos da Tropa.</p>"
             },
-            'donas-pes': {
+            {
+                slug: 'donas-pes',
                 title: "Quem são as donas dos pés?",
                 image: "https://i.imgur.com/wGtuv3T.jpeg",
-                text: "<p>A investigação continua! A Tropa quer saber quem são as donas dos pés que conquistaram o coração (e o fetiche) do Márcio Prates.</p>"
+                date: "01 Mar",
+                category: "SOCIAL",
+                text: "<p>A investigação continua! A Tropa quer saber quem são as donas dos pés que conquistaram o coração do Márcio Prates.</p>"
             }
+        ];
+
+        // Renderiza o histórico lateral
+        function renderHistory() {
+            const container = document.getElementById('news-history-container');
+            container.innerHTML = '';
+            
+            // Pula a primeira (que é a principal) e mostra o resto
+            newsData.slice(1).forEach(news => {
+                const div = document.createElement('div');
+                div.className = 'group cursor-pointer history-item pb-4 border-b border-white/5';
+                div.onclick = () => openNews(news.slug);
+                div.innerHTML = `
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-brand-red text-[10px] font-bold brand-font uppercase tracking-widest">${news.category}</span>
+                        <span class="text-zinc-600 text-[10px] font-bold">${news.date}</span>
+                    </div>
+                    <h5 class="text-lg font-black uppercase group-hover:text-red-500 transition leading-tight">${news.title}</h5>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        window.onload = function() {
+            renderHistory();
         };
 
         function showPage(pageId) {
@@ -603,12 +659,17 @@
 
         let activeSlug = '';
         function openNews(slug) {
-            const news = newsData[slug];
+            const news = newsData.find(n => n.slug === slug);
             if(!news) return;
             activeSlug = slug;
             document.getElementById('modal-title').innerText = news.title;
             document.getElementById('modal-img').src = news.image;
             document.getElementById('modal-text').innerHTML = news.text;
+            
+            // Atualiza Metadados dinamicamente para o navegador identificar (ajuda no preview)
+            document.getElementById('og-title').content = news.title;
+            document.getElementById('og-image').content = news.image;
+
             document.getElementById('news-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
@@ -619,15 +680,12 @@
         }
 
         function shareActiveNews() {
-            const news = newsData[activeSlug];
+            const news = newsData.find(n => n.slug === activeSlug);
             const url = window.location.href;
             
-            // Lista de palavras para rotatividade
-            const termos = ["BOMBA!", "CHOCANTE!", "SURREAL!", "IMPRESSIONANTE!", "VOCÊ NÃO VIU!"];
-            const termoSorteado = termos[Math.floor(Math.random() * termos.length)];
+            // Texto dinâmico baseado na matéria ativa
+            const mensagem = `🚨 *URGENTE NO JORNAL DA TROPA* 🚨\n\n"${news.title}"\n\nVeja a matéria completa no site oficial:\n${url}`;
             
-            // Mensagem com rotatividade mantendo o modelo solicitado
-            const mensagem = `🚨 *${termoSorteado}* 🚨 "Novinha desmente Murilo e afirma: "Hoje o Titi passou o rodo"" Veja no site: ${url}`;
             window.open(`https://wa.me/?text=${encodeURIComponent(mensagem)}`, '_blank');
         }
 
