@@ -6,14 +6,12 @@
     <title>Tropa do Dedé | Oficial</title>
     
     <!-- Metadados para Prévia de Compartilhamento (WhatsApp/Redes Sociais) -->
-    <meta property="og:title" id="og-title" content="Titi revela: 'Vou passar o rodo geral!'">
-    <meta property="og:description" id="og-desc" content="Após 4 términos brutais, o astro da tropa volta com tudo e não perdoa nenhuma princesa.">
-    <meta property="og:image" id="og-image" content="https://i.ibb.co/TBgXNHTR/Design-sem-nome-1.png">
+    <meta property="og:title" id="og-title" content="Paozinho vence disputa de reboladas!">
+    <meta property="og:description" id="og-desc" content="Com 11 votos, Paozinho desbanca Titi e as gatas da Tropa em disputa épica de vídeos.">
+    <meta property="og:image" id="og-image" content="https://i.ibb.co/Gftk6HJL/Design-sem-nome-2.png">
     <meta property="og:type" content="article">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- SDK do Mercado Pago -->
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
 
@@ -242,18 +240,18 @@
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Matéria Principal -->
-                    <div class="lg:col-span-2 space-y-6 border-r border-white/5 pr-0 lg:pr-8 group cursor-pointer" onclick="openNews('titi-retorno')">
+                    <div class="lg:col-span-2 space-y-6 border-r border-white/5 pr-0 lg:pr-8 group cursor-pointer" onclick="openNews('vitoria-paozinho')">
                         <div class="bg-zinc-900 aspect-video w-full mb-6 border-4 border-brand-red flex items-center justify-center transition-all overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.3)]">
-                            <img src="https://i.ibb.co/TBgXNHTR/Design-sem-nome-1.png" alt="Titi Tropa do Dedé" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://i.ibb.co/Gftk6HJL/Design-sem-nome-2.png" alt="Paozinho Vencedora" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="headline-border">
                             <h3 class="text-3xl md:text-5xl font-black uppercase leading-none group-hover:text-red-500 transition italic tracking-tighter">
-                                Titi revela que após 4 términos brutais, volta com tudo e não vai perdoar nenhuma princesa da tropa: vai passar o rodo geral azaaaar
+                                depois de disputa de videos com reboladas com as integrantes do grupo paozinho vence com 11 votos
                             </h3>
                         </div>
                         
                         <p class="text-zinc-200 text-xl leading-relaxed font-bold border-l-4 border-brand-red pl-6 italic">
-                            O lobo solitário perdeu a coleira! Em declaração exclusiva, Titi afirma que sua fase romântica acabou e o "modo ataque" foi ativado para os próximos eventos...
+                            Disparado! Paozinho abateu até mesmo a lenda Titi e todas as gatas, incluindo Flavinha, Fernanda, Malu, Débora, Jenifer e etc.
                         </p>
                     </div>
                     <!-- Mais Lidas / Histórico -->
@@ -272,7 +270,7 @@
             <div class="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div>
                     <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">Marcas <span class="text-brand-red">Parceiras</span></h2>
-                    <p class="text-gray-500 uppercase text-xs tracking-[0.3em] mt-2">Quem fortalece o movimento</p>
+                    <p class="text-gray-500 uppercase text-xs tracking-[0.3em] mt-2">Quem fortalece o movemento</p>
                 </div>
                 <button onclick="showPage('camarote')" class="text-white border border-white/20 px-6 py-2 brand-font font-bold text-sm hover:bg-brand-red transition uppercase">Quero Ser Parceiro</button>
             </div>
@@ -443,18 +441,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="max-w-4xl mx-auto">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                    <div class="category-card">Roupas</div>
-                    <div class="category-card">Calçados</div>
-                    <div class="category-card">Acessórios</div>
-                    <div class="category-card">Kits Completos</div>
-                </div>
-                <div class="text-center">
-                    <button onclick="showPage('home')" class="text-zinc-500 hover:text-white transition flex items-center justify-center gap-2 brand-font uppercase text-sm mx-auto">← Voltar para o início</button>
-                </div>
-            </div>
         </section>
     </main>
 
@@ -474,42 +460,7 @@
                         <h1 class="text-5xl md:text-6xl font-black brand-font leading-none uppercase">Kit da Tropa</h1>
                         <h2 id="vendas-nome" class="text-2xl font-bold brand-font text-zinc-500 uppercase italic"></h2>
                     </div>
-
-                    <div class="space-y-2">
-                        <p class="text-zinc-400 text-sm uppercase tracking-widest">Preço Exclusivo</p>
-                        <div class="flex items-baseline gap-3">
-                            <span class="text-6xl font-black text-white brand-font">R$ 199,90</span>
-                            <span class="text-zinc-500 line-through text-xl">R$ 349,90</span>
-                        </div>
-                        <p class="text-brand-red font-bold text-xl brand-font">Ou em até 12x de R$ 19,90 no cartão</p>
-                    </div>
-
-                    <div class="space-y-4 pt-4 border-t border-white/10">
-                        <p class="text-xs uppercase tracking-widest text-zinc-400 font-bold">Selecione o Tamanho</p>
-                        <div class="flex gap-3">
-                            <button onclick="selectSize(this)" class="size-btn w-12 h-12 border border-white/20 rounded-lg flex items-center justify-center brand-font hover:bg-white hover:text-black transition">P</button>
-                            <button onclick="selectSize(this)" class="size-btn w-12 h-12 border border-brand-red bg-brand-red text-white rounded-lg flex items-center justify-center brand-font">M</button>
-                            <button onclick="selectSize(this)" class="size-btn w-12 h-12 border border-white/20 rounded-lg flex items-center justify-center brand-font hover:bg-white hover:text-black transition">G</button>
-                            <button onclick="selectSize(this)" class="size-btn w-12 h-12 border border-white/20 rounded-lg flex items-center justify-center brand-font hover:bg-white hover:text-black transition">GG</button>
-                        </div>
-                    </div>
-
-                    <div class="pt-6 space-y-4">
-                        <div id="wallet_container"></div>
-                        <p class="text-center text-zinc-500 text-[10px] uppercase tracking-widest">Atendimento direto com a equipe de vendas da Tropa</p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4 pt-6">
-                        <div class="bg-zinc-900/50 p-4 rounded-xl border border-white/5">
-                            <span class="block text-brand-red font-bold text-xs mb-1 uppercase">Frete</span>
-                            <span class="text-white text-sm">Entrega em toda BH e Região</span>
-                        </div>
-                        <div class="bg-zinc-900/50 p-4 rounded-xl border border-white/5">
-                            <span class="block text-brand-red font-bold text-xs mb-1 uppercase">Qualidade</span>
-                            <span class="text-white text-sm">Material Premium 100% Algodão</span>
-                        </div>
-                    </div>
-
+                    <div id="wallet_container"></div>
                     <button onclick="showPage('loja')" class="text-zinc-500 hover:text-white transition flex items-center gap-2 brand-font uppercase text-sm">← Voltar para a loja</button>
                 </div>
             </div>
@@ -539,52 +490,42 @@
 
     <!-- Rodapé -->
     <footer id="contato" class="py-16 border-t border-white/10 px-6 bg-black">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col items-center gap-10">
-                <div class="text-center">
-                    <div class="brand-font text-3xl font-black tracking-tighter cursor-pointer" onclick="showPage('home')">
-                        TROPA <span class="text-brand-red">DO</span> DEDÉ <span class="text-zinc-500 text-xl font-light block md:inline md:ml-2">NO DIGITAL</span>
-                    </div>
-                </div>
-
-                <div class="flex flex-col items-center gap-4">
-                    <span class="brand-font text-xs text-brand-red font-bold tracking-[0.3em] uppercase">Nossas Redes</span>
-                    <div class="flex flex-wrap justify-center gap-8 md:gap-12">
-                        <a href="https://www.instagram.com/tropadodedeofc/" target="_blank" class="group flex flex-col items-center text-zinc-400 hover:text-white transition">
-                            <span class="text-[10px] font-bold brand-font uppercase tracking-widest">Instagram</span>
-                        </a>
-                        <a href="https://www.tiktok.com/@tropadodedeofc" target="_blank" class="group flex flex-col items-center text-zinc-400 hover:text-white transition">
-                            <span class="text-[10px] font-bold brand-font uppercase tracking-widest">TikTok</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="text-center pt-4 border-t border-white/5 w-full">
-                    <p class="text-gray-600 text-[10px] uppercase tracking-[0.2em]">&copy; 2024 Tropa do Dedé. BH - Brasil.</p>
-                </div>
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="brand-font text-3xl font-black tracking-tighter mb-8 cursor-pointer" onclick="showPage('home')">
+                TROPA <span class="text-brand-red">DO</span> DEDÉ
             </div>
+            <p class="text-gray-600 text-[10px] uppercase tracking-[0.2em]">&copy; 2024 Tropa do Dedé. BH - Brasil.</p>
         </div>
     </footer>
 
-    <!-- Botão Flutuante Grupo VIP -->
-    <a href="https://chat.whatsapp.com/Cg4WybfT40mDuKsE0Up47a" target="_blank" class="fixed bottom-6 right-6 bg-brand-red p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center justify-center group shadow-red-600/30">
-        <span class="absolute right-full mr-3 bg-black/90 text-white text-[10px] px-3 py-1 rounded brand-font whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">GRUPO VIP</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-    </a>
-
     <script>
-        let currentSize = 'M';
         const WHATSAPP_NUMBER = '5531993273932';
 
         // HISTÓRICO DE MATÉRIAS (ORDEM CRONOLÓGICA)
         const newsData = [
             {
+                slug: 'vitoria-paozinho',
+                title: "depois de disputa de videos com reboladas com as integrantes do grupo paozinho vence com 11 votos",
+                image: "https://i.ibb.co/Gftk6HJL/Design-sem-nome-2.png",
+                date: "Hoje",
+                category: "VITÓRIA",
+                text: "<p>A votação foi encerrada e o resultado é incontestável! Paozinho é a grande campeã da disputa de vídeos de rebolada da Tropa do Dedé.</p><p>Com 11 votos, ela venceu disparado, abatendo até mesmo a lenda Titi e superando todas as gatas do grupo, entre elas Flavinha, Fernanda, Malu, Débora e Jenifer. O gingado da Paozinho provou ser o favorito da comunidade neste desafio épico.</p>"
+            },
+            {
+                slug: 'disputa-rebolada',
+                title: "depois de disputa de reboladas com as integrantes do grupo",
+                image: "https://i.ibb.co/jk6r1hJ7/Whats-App-Image-2026-03-04-at-19-55-43.jpg",
+                date: "Hoje",
+                category: "DANÇA",
+                text: "<p>O clima ferveu durante o último encontro da Tropa! Em um momento de descontração total, iniciou-se uma disputa épica de reboladas envolvendo as integrantes do grupo.</p>"
+            },
+            {
                 slug: 'titi-retorno',
                 title: "Titi revela que após 4 términos brutais, volta com tudo e não vai perdoar nenhuma princesa da tropa vai passar o rodo geral azaaaar",
                 image: "https://i.ibb.co/TBgXNHTR/Design-sem-nome-1.png",
-                date: "Hoje",
+                date: "04 Mar",
                 category: "BOMBA!",
-                text: "<p>O astro da Tropa cansou de sofrer por amor! Após enfrentar o quarto término brutal em tempo recorde, Titi quebrou o silêncio e mandou o papo reto para a comunidade.</p><p>Em suas palavras: 'O romantismo morreu. Agora é foco nos eventos e não vai sobrar uma princesa na pista'. O aviso foi dado e o azar é de quem cruzar o caminho do homem nesse final de semana.</p><p>Fontes próximas indicam que ele já preparou o look para descer pesado nos camarotes e o modo 'passar o rodo' já está 100% operacional.</p>"
+                text: "<p>O astro da Tropa cansou de sofrer por amor! Titi quebrou o silêncio e mandou o papo reto: 'O romantismo morreu'. Agora o foco é nos eventos e o modo 'passar o rodo' está ativado.</p>"
             },
             {
                 slug: 'veteranas-retorno',
@@ -592,7 +533,7 @@
                 image: "https://i.ibb.co/XZrt55M0/5c9a7df4-2254-4f45-ab7e-1f3e590e1e7a.jpg",
                 date: "Ontem",
                 category: "RECONCILIAÇÃO",
-                text: "<p>O retorno das veteranas parou BH! Após um período de afastamento devido a conflitos internos que sacudiram as estruturas da Tropa, o time histórico está de volta e mais unido do que nunca.</p><p>As veteranas não apenas retornaram, mas já avisaram: o final de semana será histórico.</p>"
+                text: "<p>O retorno das veteranas parou BH! Após um período de afastamento, o time histórico está de volta e promete que o próximo final de semana será histórico.</p>"
             },
             {
                 slug: 'podogamia',
@@ -600,24 +541,14 @@
                 image: "https://i.imgur.com/wGtuv3T.jpeg",
                 date: "02 Mar",
                 category: "ESCÂNDALO",
-                text: "<p>Márcio Prates foi flagrado em momentos de pura intimidade com os pés das integrantes. A 'podogamia' parece ter virado religião nos eventos da Tropa.</p>"
-            },
-            {
-                slug: 'donas-pes',
-                title: "Quem são as donas dos pés?",
-                image: "https://i.imgur.com/wGtuv3T.jpeg",
-                date: "01 Mar",
-                category: "SOCIAL",
-                text: "<p>A investigação continua! A Tropa quer saber quem são as donas dos pés que conquistaram o coração do Márcio Prates.</p>"
+                text: "<p>Márcio Prates foi flagrado em momentos de intimidade com os pés das integrantes. A 'podogamia' virou assunto principal.</p>"
             }
         ];
 
-        // Renderiza o histórico lateral
         function renderHistory() {
             const container = document.getElementById('news-history-container');
             container.innerHTML = '';
             
-            // Pula a primeira (que é a principal) e mostra o resto
             newsData.slice(1).forEach(news => {
                 const div = document.createElement('div');
                 div.className = 'group cursor-pointer history-item pb-4 border-b border-white/5';
@@ -639,21 +570,8 @@
 
         function showPage(pageId) {
             const pages = ['page-home', 'page-camarote', 'page-loja', 'page-planos', 'page-vendas'];
-            const navLinksHome = document.querySelectorAll('.nav-link-home');
-
-            pages.forEach(id => {
-                const p = document.getElementById(id);
-                if(p) p.classList.add('hidden-page');
-            });
-
-            const activePage = document.getElementById('page-' + pageId);
-            if (activePage) activePage.classList.remove('hidden-page');
-
-            if (pageId === 'home') {
-                navLinksHome.forEach(link => link.style.display = 'block');
-            } else {
-                navLinksHome.forEach(link => link.style.display = 'none');
-            }
+            pages.forEach(id => document.getElementById(id)?.classList.add('hidden-page'));
+            document.getElementById('page-' + pageId)?.classList.remove('hidden-page');
             window.scrollTo(0, 0);
         }
 
@@ -666,7 +584,7 @@
             document.getElementById('modal-img').src = news.image;
             document.getElementById('modal-text').innerHTML = news.text;
             
-            // Atualiza Metadados dinamicamente para o navegador identificar (ajuda no preview)
+            // Metadados
             document.getElementById('og-title').content = news.title;
             document.getElementById('og-image').content = news.image;
 
@@ -682,57 +600,14 @@
         function shareActiveNews() {
             const news = newsData.find(n => n.slug === activeSlug);
             const url = window.location.href;
-            
-            // Texto dinâmico baseado na matéria ativa
-            const mensagem = `🚨 *URGENTE NO JORNAL DA TROPA* 🚨\n\n"${news.title}"\n\nVeja a matéria completa no site oficial:\n${url}`;
-            
+            const mensagem = `🚨 *URGENTE NO JORNAL DA TROPA* 🚨\n\n"${news.title}"\n\nConfira os detalhes no site:\n${url}`;
             window.open(`https://wa.me/?text=${encodeURIComponent(mensagem)}`, '_blank');
         }
 
         function openVendas(nome, img, tipo) {
             document.getElementById('vendas-nome').innerText = nome;
             document.getElementById('vendas-img').src = img;
-            const container = document.getElementById('vendas-img-container');
-            if(tipo === 'White') {
-                container.classList.remove('bg-zinc-900');
-                container.classList.add('bg-zinc-100');
-            } else {
-                container.classList.remove('bg-zinc-100');
-                container.classList.add('bg-zinc-900');
-            }
-            renderMPButton();
             showPage('vendas');
-        }
-
-        function selectSize(btn) {
-            document.querySelectorAll('.size-btn').forEach(b => {
-                b.classList.remove('border-brand-red', 'bg-brand-red', 'text-white');
-                b.classList.add('border-white/20');
-            });
-            btn.classList.add('border-brand-red', 'bg-brand-red', 'text-white');
-            btn.classList.remove('border-white/20');
-            currentSize = btn.innerText;
-        }
-
-        function renderMPButton() {
-            const container = document.getElementById('wallet_container');
-            container.innerHTML = `
-                <button onclick="sendToWhatsApp()" 
-                        class="block w-full text-center bg-[#25D366] text-white py-5 rounded-xl font-black brand-font text-2xl tracking-widest uppercase hover:opacity-90 transition-all shadow-2xl flex items-center justify-center gap-3">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-2.135 0-4.148.833-5.67 2.34s-2.348 3.525-2.35 5.66c0 1.25.305 2.474.88 3.56l-1.001 3.655 3.746-.982c1.036.565 2.2.863 3.393.864h.004c2.135 0 4.148-.833 5.67-2.34s2.348-3.525 2.35-5.66c-.004-4.32-3.511-7.831-7.832-7.831zM17.156 16.143c-.22.617-1.285 1.138-1.785 1.207-.49.068-.973.111-2.906-.653-2.302-.912-3.791-3.253-3.906-3.407-.116-.154-.943-1.254-.943-2.392 0-1.138.591-1.697.801-1.928.21-.231.464-.289.617-.289.155 0 .309.001.442.008.14.008.328-.053.513.393.185.462.634 1.543.689 1.658.056.115.093.25.016.404-.077.154-.116.25-.231.385-.116.135-.243.301-.347.404-.116.115-.238.24-.102.473.136.233.604.996 1.294 1.611.889.791 1.64 1.036 1.872 1.152.231.115.367.096.502-.058.136-.153.579-.674.733-.905.154-.231.309-.192.523-.116.215.077 1.364.643 1.595.759.231.116.385.173.442.269.057.097.057.558-.163 1.176z"/></svg>
-                    Finalizar no WhatsApp
-                </button>
-            `;
-        }
-
-        function sendToWhatsApp() {
-            const kitNome = document.getElementById('vendas-nome').innerText;
-            const mensagem = `Salve Tropa! Gostaria de finalizar o pedido do meu Kit:\n\n` +
-                             `📦 *Produto:* Kit da Tropa ${kitNome}\n` +
-                             `📏 *Tamanho:* ${currentSize}\n` +
-                             `💰 *Valor:* R$ 199,90\n\n` +
-                             `Como faço para realizar o pagamento e retirar em BH?`;
-            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`, '_blank');
         }
     </script>
 </body>
