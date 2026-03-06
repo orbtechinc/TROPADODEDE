@@ -6,9 +6,9 @@
     <title>Tropa do Dedé | Oficial</title>
     
     <!-- Metadados para Prévia de Compartilhamento (WhatsApp/Redes Sociais) -->
-    <meta property="og:title" id="og-title" content="BOMBA! Acusações Graves na Tropa">
-    <meta property="og:description" id="og-desc" content="Titi e Murilove trocam acusações pesadas e polêmicas no grupo da Tropa.">
-    <meta property="og:image" id="og-image" content="https://i.ibb.co/s9Xq96sP/Design-sem-nome-3.png">
+    <meta property="og:title" id="og-title" content="BOMBA! Titi se pronuncia e expõe Murilove">
+    <meta property="og:description" id="og-desc" content="Documentos de idoneidade e acusações de banimento da mansão. O clima esquentou na Tropa!">
+    <meta property="og:image" id="og-image" content="https://i.ibb.co/BHT5YWsD/20260306-111837-0000.png">
     <meta property="og:type" content="article">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -240,18 +240,18 @@
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Matéria Principal -->
-                    <div class="lg:col-span-2 space-y-6 border-r border-white/5 pr-0 lg:pr-8 group cursor-pointer" onclick="openNews('polemica-titi-murilove')">
+                    <div class="lg:col-span-2 space-y-6 border-r border-white/5 pr-0 lg:pr-8 group cursor-pointer" onclick="openNews('pronunciamento-titi')">
                         <div class="bg-zinc-900 aspect-video w-full mb-6 border-4 border-brand-red flex items-center justify-center transition-all overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.3)]">
-                            <img src="https://i.ibb.co/s9Xq96sP/Design-sem-nome-3.png" alt="Conflito Tropa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://i.ibb.co/BHT5YWsD/20260306-111837-0000.png" alt="Pronunciamento Titi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="headline-border">
                             <h3 class="text-3xl md:text-5xl font-black uppercase leading-none group-hover:text-red-500 transition italic tracking-tighter">
-                                acusação grave! titi é acusado gravemente por murilove ao se relacionar com algumas garotas em sua trajetoria galante
+                                titi da seu pronunciamento e traz documento que comprova sua idoniedde
                             </h3>
                         </div>
                         
                         <p class="text-zinc-200 text-xl leading-relaxed font-bold border-l-4 border-brand-red pl-6 italic">
-                            O clima pesou! Titi e Murilove trocam acusações bombásticas de "uso do job" a "ist no fêmur". Aguardamos o posicionamento oficial no grupo da Tropa.
+                            O contra-ataque veio! Titi reafirma que Murilove "deixa as mulheres na rua", se passa por autoridade e foi banido da Mansão do Márcio. Aguardamos resposta.
                         </p>
                     </div>
                     <!-- Mais Lidas / Histórico -->
@@ -504,6 +504,14 @@
         // HISTÓRICO DE MATÉRIAS (ORDEM CRONOLÓGICA)
         const newsData = [
             {
+                slug: 'pronunciamento-titi',
+                title: "titi da seu pronunciamento e traz documento que comprova sua idoniedde",
+                image: "https://i.ibb.co/BHT5YWsD/20260306-111837-0000.png",
+                date: "Hoje",
+                category: "DIREITO DE RESPOSTA",
+                text: "<p>Titi quebrou o silêncio após as acusações de Murilove e trouxe documentos que, segundo ele, comprovam sua total idoneidade frente às polêmicas. Em um tom agressivo, Titi reafirmou que Murilove 'deixa as mulheres que não pega na rua', ignorando pedidos de ajuda.</p><p>Além disso, o pronunciamento trouxe uma bomba: Murilove teria sido banido da Mansão do Márcio e estaria se passando por autoridade sem ter cargo ou poder real. O clima na Tropa agora é de pura tensão, aguardando o posicionamento de Murilove sobre o banimento e os documentos apresentados.</p>"
+            },
+            {
                 slug: 'polemica-titi-murilove',
                 title: "acusação grave! titi é acusado gravemente por murilove ao se relacionar com algumas garotas em sua trajetoria galante",
                 image: "https://i.ibb.co/s9Xq96sP/Design-sem-nome-3.png",
@@ -534,14 +542,6 @@
                 date: "04 Mar",
                 category: "POLÊMICA",
                 text: "<p>O astro da Tropa cansou de sofrer por amor! Titi quebrou o silêncio e mandou o papo reto: 'O romantismo morreu'. Agora o foco é nos eventos e o modo 'passar o rodo' está ativado.</p>"
-            },
-            {
-                slug: 'veteranas-retorno',
-                title: "Veteranas da Tropa após saída do grupo por conflitos internos voltam com tudo e prometem quebrar tudo",
-                image: "https://i.ibb.co/XZrt55M0/5c9a7df4-2254-4f45-ab7e-1f3e590e1e7a.jpg",
-                date: "Ontem",
-                category: "RETORNO",
-                text: "<p>O retorno das veteranas parou BH! Após um período de afastamento, o time histórico está de volta e promete que o próximo final de semana será histórico.</p>"
             }
         ];
 
@@ -549,6 +549,7 @@
             const container = document.getElementById('news-history-container');
             container.innerHTML = '';
             
+            // Renderiza as matérias do histórico (todas menos a atual principal que é a index 0)
             newsData.slice(1).forEach(news => {
                 const div = document.createElement('div');
                 div.className = 'group cursor-pointer history-item pb-4 border-b border-white/5';
