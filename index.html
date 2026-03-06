@@ -6,9 +6,9 @@
     <title>Tropa do Dedé | Oficial</title>
     
     <!-- Metadados para Prévia de Compartilhamento (WhatsApp/Redes Sociais) -->
-    <meta property="og:title" id="og-title" content="Paozinho vence disputa de reboladas!">
-    <meta property="og:description" id="og-desc" content="Com 11 votos, Paozinho desbanca Titi e as gatas da Tropa em disputa épica de vídeos.">
-    <meta property="og:image" id="og-image" content="https://i.ibb.co/Gftk6HJL/Design-sem-nome-2.png">
+    <meta property="og:title" id="og-title" content="BOMBA! Acusações Graves na Tropa">
+    <meta property="og:description" id="og-desc" content="Titi e Murilove trocam acusações pesadas e polêmicas no grupo da Tropa.">
+    <meta property="og:image" id="og-image" content="https://i.ibb.co/s9Xq96sP/Design-sem-nome-3.png">
     <meta property="og:type" content="article">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -240,18 +240,18 @@
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Matéria Principal -->
-                    <div class="lg:col-span-2 space-y-6 border-r border-white/5 pr-0 lg:pr-8 group cursor-pointer" onclick="openNews('vitoria-paozinho')">
+                    <div class="lg:col-span-2 space-y-6 border-r border-white/5 pr-0 lg:pr-8 group cursor-pointer" onclick="openNews('polemica-titi-murilove')">
                         <div class="bg-zinc-900 aspect-video w-full mb-6 border-4 border-brand-red flex items-center justify-center transition-all overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.3)]">
-                            <img src="https://i.ibb.co/Gftk6HJL/Design-sem-nome-2.png" alt="Paozinho Vencedora" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="https://i.ibb.co/s9Xq96sP/Design-sem-nome-3.png" alt="Conflito Tropa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="headline-border">
                             <h3 class="text-3xl md:text-5xl font-black uppercase leading-none group-hover:text-red-500 transition italic tracking-tighter">
-                                depois de disputa de videos com reboladas com as integrantes do grupo paozinho vence com 11 votos
+                                acusação grave! titi é acusado gravemente por murilove ao se relacionar com algumas garotas em sua trajetoria galante
                             </h3>
                         </div>
                         
                         <p class="text-zinc-200 text-xl leading-relaxed font-bold border-l-4 border-brand-red pl-6 italic">
-                            Disparado! Paozinho abateu até mesmo a lenda Titi e todas as gatas, incluindo Flavinha, Fernanda, Malu, Débora, Jenifer e etc.
+                            O clima pesou! Titi e Murilove trocam acusações bombásticas de "uso do job" a "ist no fêmur". Aguardamos o posicionamento oficial no grupo da Tropa.
                         </p>
                     </div>
                     <!-- Mais Lidas / Histórico -->
@@ -504,18 +504,26 @@
         // HISTÓRICO DE MATÉRIAS (ORDEM CRONOLÓGICA)
         const newsData = [
             {
+                slug: 'polemica-titi-murilove',
+                title: "acusação grave! titi é acusado gravemente por murilove ao se relacionar com algumas garotas em sua trajetoria galante",
+                image: "https://i.ibb.co/s9Xq96sP/Design-sem-nome-3.png",
+                date: "Hoje",
+                category: "BOMBA!",
+                text: "<p>O clima pesou na Tropa! Murilove lançou acusações graves contra Titi, alegando comportamentos críticos em sua trajetória galante com diversas garotas. A situação escalou rapidamente quando Titi decidiu revidar com revelações ainda mais pesadas.</p><p>Titi acusa Murilove de 'usar e abusar do job', de se passar por autoridade indevidamente e, o mais bizarro: afirma que Murilove possui um tipo raro de IST no fêmur. A comunidade está em choque e aguarda os próximos capítulos e posicionamentos oficiais no grupo oficial.</p>"
+            },
+            {
                 slug: 'vitoria-paozinho',
                 title: "depois de disputa de videos com reboladas com as integrantes do grupo paozinho vence com 11 votos",
                 image: "https://i.ibb.co/Gftk6HJL/Design-sem-nome-2.png",
                 date: "Hoje",
                 category: "VITÓRIA",
-                text: "<p>A votação foi encerrada e o resultado é incontestável! Pãozinho é o grande campeã da disputa de vídeos de rebolada da Tropa do Dedé.</p><p>Com 11 votos, ele venceu disparado, abatendo até mesmo a lenda Titi e superando todas as gatas do grupo, entre elas Flavinha, Fernanda, Malu, Débora e Jenifer. O gingado do Pãozinho provou ser o favorito da comunidade neste desafio épico.</p>"
+                text: "<p>A votação foi encerrada e o resultado é incontestável! Paozinho é a grande campeã da disputa de vídeos de rebolada da Tropa do Dedé.</p><p>Com 11 votos, ela venceu disparado, abatendo até mesmo a lenda Titi e superando todas as gatas do grupo, entre elas Flavinha, Fernanda, Malu, Débora e Jenifer. O gingado da Paozinho provou ser o favorito da comunidade neste desafio épico.</p>"
             },
             {
                 slug: 'disputa-rebolada',
                 title: "depois de disputa de reboladas com as integrantes do grupo",
                 image: "https://i.ibb.co/jk6r1hJ7/Whats-App-Image-2026-03-04-at-19-55-43.jpg",
-                date: "Hoje",
+                date: "04 Mar",
                 category: "DANÇA",
                 text: "<p>O clima ferveu durante o último encontro da Tropa! Em um momento de descontração total, iniciou-se uma disputa épica de reboladas envolvendo as integrantes do grupo.</p>"
             },
@@ -524,7 +532,7 @@
                 title: "Titi revela que após 4 términos brutais, volta com tudo e não vai perdoar nenhuma princesa da tropa vai passar o rodo geral azaaaar",
                 image: "https://i.ibb.co/TBgXNHTR/Design-sem-nome-1.png",
                 date: "04 Mar",
-                category: "BOMBA!",
+                category: "POLÊMICA",
                 text: "<p>O astro da Tropa cansou de sofrer por amor! Titi quebrou o silêncio e mandou o papo reto: 'O romantismo morreu'. Agora o foco é nos eventos e o modo 'passar o rodo' está ativado.</p>"
             },
             {
@@ -532,16 +540,8 @@
                 title: "Veteranas da Tropa após saída do grupo por conflitos internos voltam com tudo e prometem quebrar tudo",
                 image: "https://i.ibb.co/XZrt55M0/5c9a7df4-2254-4f45-ab7e-1f3e590e1e7a.jpg",
                 date: "Ontem",
-                category: "RECONCILIAÇÃO",
+                category: "RETORNO",
                 text: "<p>O retorno das veteranas parou BH! Após um período de afastamento, o time histórico está de volta e promete que o próximo final de semana será histórico.</p>"
-            },
-            {
-                slug: 'podogamia',
-                title: "Márcio Prates e a Podogamia em BH",
-                image: "https://i.imgur.com/wGtuv3T.jpeg",
-                date: "02 Mar",
-                category: "ESCÂNDALO",
-                text: "<p>Márcio Prates foi flagrado em momentos de intimidade com os pés das integrantes. A 'podogamia' virou assunto principal.</p>"
             }
         ];
 
@@ -600,7 +600,7 @@
         function shareActiveNews() {
             const news = newsData.find(n => n.slug === activeSlug);
             const url = window.location.href;
-            const mensagem = `🚨 *URGENTE NO JORNAL DA TROPA* 🚨\n\n"${news.title}"\n\nConfira os detalhes no site:\n${url}`;
+            const mensagem = `🚨 *BOMBA NO JORNAL DA TROPA* 🚨\n\n"${news.title}"\n\nConfira os detalhes no site:\n${url}`;
             window.open(`https://wa.me/?text=${encodeURIComponent(mensagem)}`, '_blank');
         }
 
